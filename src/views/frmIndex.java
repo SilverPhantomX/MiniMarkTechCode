@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package views;
 
-/**
- *
- * @author Christopher
- */
+
 public class frmIndex extends javax.swing.JFrame {
 
     /**
@@ -15,7 +8,7 @@ public class frmIndex extends javax.swing.JFrame {
      */
     public frmIndex() {
         initComponents();
-        setSize(1920, 1080);
+        setSize(854, 480);
         setLocationRelativeTo(null);
         setTitle("MiniMarkTech");
     }
@@ -38,14 +31,14 @@ public class frmIndex extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1290, Short.MAX_VALUE)
+            .addGap(0, 854, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 810));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 854, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

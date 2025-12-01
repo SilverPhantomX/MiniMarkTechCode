@@ -23,10 +23,10 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtRut = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtContrasena = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
         btnIngresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtContrasena = new javax.swing.JPasswordField();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Iniciar Sesión", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Nirmala UI", 0, 18), new java.awt.Color(51, 51, 51))); // NOI18N
 
@@ -70,18 +70,6 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel3.setText("CONTRASEÑA:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, 20));
 
-        txtContrasena.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContrasenaActionPerformed(evt);
-            }
-        });
-        txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtContrasenaKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 230, -1));
-
         btnSalir.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +85,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_210x150-Photoroom.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 210, 160));
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 230, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 440));
 
@@ -111,10 +100,6 @@ public class frmLogin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
-        
-    }//GEN-LAST:event_txtContrasenaActionPerformed
-
     private void txtRutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRutKeyTyped
         
         char rut = evt.getKeyChar();
@@ -126,12 +111,6 @@ public class frmLogin extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtRutKeyTyped
-
-    private void txtContrasenaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyTyped
-        if (txtContrasena.getText().length() > 8){
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtContrasenaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -176,7 +155,7 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtRut;
     // End of variables declaration//GEN-END:variables
 }

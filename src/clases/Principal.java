@@ -8,7 +8,7 @@ public class Principal {
 
     
     public static void main(String[] args) {
-        
+          
         frmIndex objIndex = new frmIndex();
         frmLogin objLogin = new frmLogin();
         

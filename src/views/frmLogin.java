@@ -29,7 +29,6 @@ public class frmLogin extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
-        btnCrearUsuario = new javax.swing.JButton();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Iniciar Sesión", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Nirmala UI", 0, 18), new java.awt.Color(51, 51, 51))); // NOI18N
 
@@ -93,16 +92,18 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_210x150-Photoroom.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 210, 160));
-        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 230, -1));
 
-        btnCrearUsuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        btnCrearUsuario.setText("Crear Usuario");
-        btnCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearUsuarioActionPerformed(evt);
+                txtContrasenaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 130, 60));
+        txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContrasenaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 230, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 440));
 
@@ -115,7 +116,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
 
-        int opcion = JOptionPane.showConfirmDialog(this, "estas seguro", "pregunta", 0);
+        int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro?", "Salir", 0);
         if (opcion == 0) {
             System.exit(0);
         }
@@ -133,34 +134,6 @@ public class frmLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtRutKeyTyped
 
-    private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
-
-        String rut = txtRut.getText();
-        String contrasena = String.valueOf(txtContrasena.getPassword());
-
-        usuarioController controladorUsuario = new usuarioController();
-        Usuario usuario = controladorUsuario.validarLogin(rut, contrasena);
-
-        if (usuario != null) {
-
-            // muestra el nombre en la ventana index
-            //String nombreCompleto = usuario.GetNombre() + " "+ usuario.getApellido 
-            dlgCrearUsuario objCrearUsuario = new dlgCrearUsuario(this, true);
-            objCrearUsuario.setVisible(true);
-
-            this.dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Rut o contraseña incorrectos",
-                    "error",
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCrearUsuarioActionPerformed
-
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
         String rut = txtRut.getText();
@@ -172,7 +145,7 @@ public class frmLogin extends javax.swing.JFrame {
         if (usuario != null) {
 
             // muestra el nombre en la ventana index
-            //String nombreCompleto = usuario.GetNombre() + " "+ usuario.getApellido 
+            String nombreCompleto = usuario.getNombre() + " "+ usuario.getApellido();
             frmIndex index = new frmIndex();
             index.setVisible(true);
 
@@ -188,6 +161,16 @@ public class frmLogin extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContrasenaActionPerformed
+
+    private void txtContrasenaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyTyped
+        if (txtContrasena.getText().length() > 8){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtContrasenaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -225,7 +208,6 @@ public class frmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearUsuario;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;

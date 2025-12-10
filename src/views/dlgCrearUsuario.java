@@ -15,7 +15,7 @@ public class dlgCrearUsuario extends javax.swing.JDialog {
         initComponents();
         setSize(400, 400);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setTitle("Crear usuario");
         cargarCargos();
     }
 
@@ -133,6 +133,7 @@ public class dlgCrearUsuario extends javax.swing.JDialog {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
 
+        //obtiene el texto
         String rut = txtRut.getText();
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
